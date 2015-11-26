@@ -289,7 +289,7 @@ case class REPLesent(
   }
 
   private case class Deck(slides: IndexedSeq[Slide]) {
-    private var slideCursor = -1
+    var slideCursor = -1
     private var buildCursor = 0
 
     private def currentSlideIsDefined: Boolean = slides.isDefinedAt(slideCursor)
@@ -565,4 +565,6 @@ case class REPLesent(
   def help: Unit = print(helpMessage)
   def h: Unit = help
   def ? : Unit = help
+
+  def c: Int = deck.slideCursor
 }
